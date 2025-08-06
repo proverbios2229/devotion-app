@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView  # ← これ追加！
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('devotions.urls')),   ##れで最終的なアクセスURLはhttp://localhost:8000/api/devotions/
+    path('api/', include('devotions.urls')),  # Devotion用API
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # ← 追加！
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'), # ← 追加！
 ]
