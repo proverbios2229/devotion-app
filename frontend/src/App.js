@@ -243,7 +243,7 @@ function App() {
               placeholder="Enter verse (e.g. John 3:16)"
               value={verseQuery}
               onChange={(e) => setVerseQuery(e.target.value)}
-              style={{ marginRight: 10 }}
+              style={{ marginRight: 10, width: '150px' }}
             />
             <button
               onClick={() => {
